@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimentação e saúde</title>
+    <link rel="stylesheet" type="text/css" href="stylo.css">
+    <link rel="stylesheet" type="text/css" href="form.css">
+    <script src="validacao.js"></script>
+    <script src="cript.js"></script>
+</head>
+<body>
+    <div id="interface">
+        <header id="cabecalho">
+            <hgroup>
+                <h1>Alimentação e Saúde</h1>
+                <h2>Viva com qualidade, mude seus hábitos!</h2>
+            </hgroup>
+
+            <img id="icone" src="carneverduraleg.jpg">
+            <nav id="menu">
+                <h6>Menu Principal</h6>
+                <ul type="disc" >
+                    <li onmouseover="mudaFoto('casa.png')" onmouseout="mudaFoto('carneverduraleg.jpg')"><a href="index.html">Home</a></li> 
+                    <li onmouseover="mudaFoto('receitas.png')" onmouseout="mudaFoto('carneverduraleg.jpg')"><a href="receita.html">Receitas</a></li>
+                    <li onmouseout="mudaFoto('alim.png')" onmouseout="mudaFoto('carneverduraleg.jpg')" ><a href="alimentos.html">Alimentos</a></li> 
+                    <li onmouseover="mudaFoto('multi.png')" onmouseout="mudaFoto('carneverduraleg.jpg')"><a href="multim.html">Multimídia</a></li> 
+                    <li onmouseover="mudaFoto('faleconosco.png')" onmouseout="mudaFoto('carneverduraleg.jpg')"><a href="fale-conosco.html">Fale conosco</a></li> 
+                </ul>
+            </nav>
+        </header>
+        <section id="corpo-full">
+            <article id="noticia-principal">
+                <header id="cabecalho-artigo">
+                    <hgroup>
+                        <h3>Fale Conosco > contato</h3>
+                        <h1>Formulário de contato</h1>
+                        <h2>por Tatiane Sousa</h2>
+                        <h3 class="direita">Atualizado em Dezembro/2022</h3>
+                    </hgroup>
+                </header>
+                    <form name="formcadastro" method="post" id="fContato" action="mailto:tatydcsc@gmail.com" oninput="calc_total();" onsubmit="return validacao()">
+                        <fieldset id="usuario">
+                            <legend>Identificação</legend> 
+                            <p><label for="cNome">Nome: </label><input type="text" name="nome" id="cNome" size="20" maxlength="30" placeholder="Nome completo"> </p>
+                            <p><label for="cCpf">Cpf: </label><input type="text" name="cpf" id="cCpf" size="20" maxlength="30" placeholder="999.999.999-99"pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}"> </p>
+                            <p><label for="cCel">Celular: </label><input type="tel" name="cel" id="cCel" size="20" maxlength="13" placeholder="19-99999-9999" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}"> </p>
+                            <!--<p><label for="cSenha">Senha: </label><input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 dígitos"> </p>-->
+                            <p><label for="cEmail">E-mail: </label><input type="email" name="email" id="cEmail" size="20" maxlength="40" placeholder="digite seu e-mail"> </p>
+                            <fieldset id="sexo"><legend>Sexo:</legend>
+                                <input type="radio" name="sexo" id="cMasc" checked> <label for="cMasc">Masculino</label><br> 
+                                <input type="radio" name="sexo" id="cFem"> <label for="cFem">Feminino</label> 
+                            </fieldset>
+                            <p> <label for="cData">Data de nascimento: </label><input type="date" name="data" id="cData"> </p>
+                        </fieldset>
+                        <fieldset id="end">
+                            <legend>Endereço</legend> 
+                            <p><label for="cRua">Rua: </label><input type="text" name="rua" id="cRua" size="20" maxlength="80" placeholder="Rua, avenida, travessa ..."></p>
+                            <p><label for="cNum">Número: </label><input type="number" name="num" id="cNum" min="0" max="99999" placeholder="Número"></p>   
+                            <p><label for="cBairro">Bairro: </label><input type="text" name="bairro" id="cBairro" size="20" maxlength="40" placeholder="Bairro"></p>
+                            <p><label for="cCidade">Cidade: </label><input type="text" name="cidade" id="cCidade" size="20" maxlength="30" placeholder="Cidade" list="cidades"></p>
+                            <datalist id="cidades">
+                                <option value="Campinas"></option>
+                                <option value="Americana"></option>
+                                <option value="Valinhos"></option>
+                                <option value="Nova Iguaçu"></option>
+                                <option value="Belfor Roxo"></option>
+                                <option value="Curitiba"></option>
+                                <option value="Londrina"></option>
+                                <option value="Belo horizonte"></option>
+                            </datalist> 
+                            <p><label for="cEstado">Estado: </label><select name="estado" id="cEstado">
+                                <optgroup label="Região Sudeste">
+                                    <option value="ES">Espírito Santo</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="SP" selected>São Paulo</option>
+                                </optgroup>
+                                <optgroup label="Região Sul">
+                                    <option value="PR">Paraná</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                </optgroup>
+                            </select></p>
+                        </fieldset>
+                        <fieldset id="mensagem">
+                            <legend>Mensagem</legend> 
+         
+                            <label for="tipo_msg">Tipo de mensagem:</label><br>
+                            <input type="radio" name="tipo_msg" value="Sugestão" checked><label for="tipo_msg">Sugestão</label><br>
+                            <input type="radio" name="tipo_msg" value="Reclamação"><label for="tipo_msg">Reclamação</label><br>
+                            <input type="radio" name="tipo_msg" value="Elogio"><label for="tipo_msg">Elogio</label><br>
+                            <p> <label for="cUrg">Grau de urgência: </label>Min<input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2">Máx</p>
+                            <P> <label for="cMsg">Mensagem: </label><textarea name="tMsg" id="cMsg" cols="35" rows="5" placeholder="Deixe aqui sua mensagem"></textarea></P>
+                        </fieldset>
+                        <fieldset id="pedido">
+                            <legend>Quero um livro de receitas</legend> 
+                            <p><input type="checkbox" name="tPed" id="cPed" checked>
+                            <label for="cPed"> Gostaria de adquirir um livro de receitas</label> </p>
+                            <p><label for="cQtd">Quantidade:</label>
+                            <input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0"></p>
+                            <p><label for="cTot">Preço total: R$</label>
+                            <input type="text" name="tTot" id="cTot" placeholder="Total a pagar" readonly></p>
+                        </fieldset>
+                        <input type="submit" name="tEnviar" id="cEnviar" value="Enviar">
+                        <input type="reset" name="tResset" id="cReset" value="Limpar">
+                        
+                    </form>
+
+            </article>
+        </section>
+
+
+        <footer id="rodape">
+            <p>
+                Copyright &copy;2023 - by Tatiane Sousa <br>
+               <a href="http://facebook.com/profile.php?id=100007506108811" target="_blank" >Facebook</a> | 
+               <a href="http://www.instagram.com/tatianecsvet" target="_blank" >Instagram</a> 
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
